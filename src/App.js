@@ -7,8 +7,6 @@ function App() {
   return (
     <Router>
       <Fragment>
-        <p>Welcome to your calendar~</p>
-
         <Route exact path='/calendar' component={Calendar} />
       </Fragment>
     </Router>
