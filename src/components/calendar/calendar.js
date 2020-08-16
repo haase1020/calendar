@@ -22,51 +22,52 @@ import {
   DragDropProvider,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import WbSunny from '@material-ui/icons/WbSunny';
-import FilterDrama from '@material-ui/icons/FilterDrama';
-import Opacity from '@material-ui/icons/Opacity';
+// import FilterDrama from '@material-ui/icons/FilterDrama';
+// import Opacity from '@material-ui/icons/Opacity';
 import ColorLens from '@material-ui/icons/ColorLens';
 import { withStyles } from '@material-ui/core/styles';
 import { owners } from '../calendar/demo-data/tasks';
+import './calendar.css';
 
 const appointments = [
   {
     id: 0,
-    title: 'Watercolor Landscape',
+    title: 'Art',
     startDate: new Date(2018, 6, 23, 9, 30),
     endDate: new Date(2018, 6, 23, 11, 30),
     ownerId: 1,
   },
   {
     id: 1,
-    title: 'Monthly Planning',
+    title: 'Math',
     startDate: new Date(2018, 5, 28, 9, 30),
     endDate: new Date(2018, 5, 28, 11, 30),
     ownerId: 1,
   },
   {
     id: 2,
-    title: 'Recruiting students',
+    title: 'Science',
     startDate: new Date(2018, 6, 9, 12, 0),
     endDate: new Date(2018, 6, 9, 13, 0),
     ownerId: 2,
   },
   {
     id: 3,
-    title: 'Oil Painting',
+    title: 'Reading',
     startDate: new Date(2018, 6, 18, 14, 30),
     endDate: new Date(2018, 6, 18, 15, 30),
     ownerId: 2,
   },
   {
     id: 4,
-    title: 'Open Day',
+    title: 'Writing',
     startDate: new Date(2018, 6, 20, 12, 0),
     endDate: new Date(2018, 6, 20, 13, 35),
     ownerId: 6,
   },
   {
     id: 5,
-    title: 'Watercolor Landscape',
+    title: 'Programming',
     startDate: new Date(2018, 6, 6, 13, 0),
     endDate: new Date(2018, 6, 6, 14, 0),
     rRule: 'FREQ=WEEKLY;BYDAY=FR;UNTIL=20180816',
@@ -75,7 +76,7 @@ const appointments = [
   },
   {
     id: 6,
-    title: 'Meeting of Instructors',
+    title: 'Japanese',
     startDate: new Date(2018, 5, 28, 12, 0),
     endDate: new Date(2018, 5, 28, 12, 30),
     rRule: 'FREQ=WEEKLY;BYDAY=TH;UNTIL=20180727',
@@ -84,7 +85,7 @@ const appointments = [
   },
   {
     id: 7,
-    title: 'Oil Painting for Beginners',
+    title: 'PE',
     startDate: new Date(2018, 6, 3, 11, 0),
     endDate: new Date(2018, 6, 3, 12, 0),
     rRule: 'FREQ=WEEKLY;BYDAY=TU;UNTIL=20180801',
@@ -93,7 +94,7 @@ const appointments = [
   },
   {
     id: 8,
-    title: 'Watercolor Workshop',
+    title: 'Music',
     startDate: new Date(2018, 6, 9, 11, 0),
     endDate: new Date(2018, 6, 9, 12, 0),
     ownerId: 3,
@@ -160,31 +161,32 @@ const styles = (theme) => ({
     padding: '0.5em',
     textAlign: 'center',
   },
-  sun: {
-    color: '#FFEE58',
-  },
-  cloud: {
-    color: '#90A4AE',
-  },
-  rain: {
-    color: '#4FC3F7',
-  },
-  sunBack: {
-    backgroundColor: '#FFFDE7',
-  },
-  cloudBack: {
-    backgroundColor: '#ECEFF1',
-  },
-  rainBack: {
-    backgroundColor: '#E1F5FE',
-  },
-  opacity: {
-    opacity: '0.5',
-  },
+  // sun: {
+  //   color: '#FFEE58',
+  // },
+  // cloud: {
+  //   color: '#90A4AE',
+  // },
+  // rain: {
+  //   color: '#4FC3F7',
+  // },
+  // sunBack: {
+  //   backgroundColor: '#FFFDE7',
+  // },
+  // cloudBack: {
+  //   backgroundColor: '#ECEFF1',
+  // },
+  // rainBack: {
+  //   backgroundColor: '#E1F5FE',
+  // },
+  // opacity: {
+  //   opacity: '0.5',
+  // },
   appointment: {
     borderRadius: '10px',
     '&:hover': {
       opacity: 0.6,
+      backgroundColor: 'blue',
     },
   },
   apptContent: {
@@ -242,18 +244,18 @@ const styles = (theme) => ({
   },
 });
 
-const WeatherIcon = ({ classes, id }) => {
-  switch (id) {
-    case 0:
-      return <Opacity className={classes.rain} fontSize='large' />;
-    case 1:
-      return <WbSunny className={classes.sun} fontSize='large' />;
-    case 2:
-      return <FilterDrama className={classes.cloud} fontSize='large' />;
-    default:
-      return null;
-  }
-};
+// const WeatherIcon = ({ classes, id }) => {
+//   switch (id) {
+//     case 0:
+//       return <Opacity className={classes.rain} fontSize='large' />;
+//     case 1:
+//       return <WbSunny className={classes.sun} fontSize='large' />;
+//     case 2:
+//       return <FilterDrama className={classes.cloud} fontSize='large' />;
+//     default:
+//       return null;
+//   }
+// };
 
 // #FOLD_BLOCK
 const CellBase = React.memo(
@@ -274,15 +276,15 @@ const CellBase = React.memo(
         tabIndex={0}
         className={classNames({
           [classes.cell]: true,
-          [classes.rainBack]: iconId === 0,
-          [classes.sunBack]: iconId === 1,
-          [classes.cloudBack]: iconId === 2,
-          [classes.opacity]: otherMonth,
+          // [classes.rainBack]: iconId === 1,
+          // [classes.sunBack]: iconId === 1,
+          // [classes.cloudBack]: iconId === 1,
+          // [classes.opacity]: iconId === 1,
         })}
       >
-        <div className={classes.content}>
+        {/* <div className={classes.content}>
           <WeatherIcon classes={classes} id={iconId} />
-        </div>
+        </div> */}
         <div className={classes.text}>
           {formatDate(startDate, formatOptions)}
         </div>
@@ -314,7 +316,7 @@ const FlexibleSpace = withStyles(styles, { name: 'ToolbarRoot' })(
       <div className={classes.flexContainer}>
         <ColorLens fontSize='large' htmlColor='#FF7043' />
         <Typography variant='h5' style={{ marginLeft: '10px' }}>
-          Art School
+          MySchool Calendar
         </Typography>
       </div>
     </Toolbar.FlexibleSpace>
@@ -360,31 +362,42 @@ export default class Demo extends React.PureComponent {
     const { data } = this.state;
 
     return (
-      <Paper>
-        <Scheduler data={data}>
-          <EditingState onCommitChanges={this.commitChanges} />
-          <ViewState defaultCurrentDate='2018-07-17' />
+      <div>
+        <div className='event-box'>
+          <h3>Learning events</h3>
+        </div>
+        <div>
+          <Paper>
+            <Scheduler data={data}>
+              <EditingState onCommitChanges={this.commitChanges} />
+              <ViewState defaultCurrentDate='2020-08-15' />
 
-          <MonthView
-            timeTableCellComponent={TimeTableCell}
-            dayScaleCellComponent={DayScaleCell}
-          />
+              <MonthView
+                timeTableCellComponent={TimeTableCell}
+                dayScaleCellComponent={DayScaleCell}
+              />
 
-          <Appointments
-            appointmentComponent={Appointment}
-            appointmentContentComponent={AppointmentContent}
-          />
-          <Resources data={resources} />
+              <Appointments
+                appointmentComponent={Appointment}
+                appointmentContentComponent={AppointmentContent}
+              />
+              <Resources data={resources} />
 
-          <Toolbar flexibleSpaceComponent={FlexibleSpace} />
-          <DateNavigator />
+              <Toolbar flexibleSpaceComponent={FlexibleSpace} />
+              <DateNavigator />
 
-          <EditRecurrenceMenu />
-          <AppointmentTooltip showCloseButton showDeleteButton showOpenButton />
-          <AppointmentForm />
-          <DragDropProvider />
-        </Scheduler>
-      </Paper>
+              <EditRecurrenceMenu />
+              <AppointmentTooltip
+                showCloseButton
+                showDeleteButton
+                showOpenButton
+              />
+              <AppointmentForm />
+              <DragDropProvider />
+            </Scheduler>
+          </Paper>
+        </div>
+      </div>
     );
   }
 }
