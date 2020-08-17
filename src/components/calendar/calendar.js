@@ -21,10 +21,6 @@ import {
   Resources,
   DragDropProvider,
 } from '@devexpress/dx-react-scheduler-material-ui';
-import WbSunny from '@material-ui/icons/WbSunny';
-// import FilterDrama from '@material-ui/icons/FilterDrama';
-// import Opacity from '@material-ui/icons/Opacity';
-import ColorLens from '@material-ui/icons/ColorLens';
 import { withStyles } from '@material-ui/core/styles';
 import { owners } from '../calendar/demo-data/tasks';
 import './calendar.css';
@@ -161,27 +157,7 @@ const styles = (theme) => ({
     padding: '0.5em',
     textAlign: 'center',
   },
-  // sun: {
-  //   color: '#FFEE58',
-  // },
-  // cloud: {
-  //   color: '#90A4AE',
-  // },
-  // rain: {
-  //   color: '#4FC3F7',
-  // },
-  // sunBack: {
-  //   backgroundColor: '#FFFDE7',
-  // },
-  // cloudBack: {
-  //   backgroundColor: '#ECEFF1',
-  // },
-  // rainBack: {
-  //   backgroundColor: '#E1F5FE',
-  // },
-  // opacity: {
-  //   opacity: '0.5',
-  // },
+
   appointment: {
     borderRadius: '10px',
     '&:hover': {
@@ -244,19 +220,6 @@ const styles = (theme) => ({
   },
 });
 
-// const WeatherIcon = ({ classes, id }) => {
-//   switch (id) {
-//     case 0:
-//       return <Opacity className={classes.rain} fontSize='large' />;
-//     case 1:
-//       return <WbSunny className={classes.sun} fontSize='large' />;
-//     case 2:
-//       return <FilterDrama className={classes.cloud} fontSize='large' />;
-//     default:
-//       return null;
-//   }
-// };
-
 // #FOLD_BLOCK
 const CellBase = React.memo(
   ({
@@ -276,15 +239,8 @@ const CellBase = React.memo(
         tabIndex={0}
         className={classNames({
           [classes.cell]: true,
-          // [classes.rainBack]: iconId === 1,
-          // [classes.sunBack]: iconId === 1,
-          // [classes.cloudBack]: iconId === 1,
-          // [classes.opacity]: iconId === 1,
         })}
       >
-        {/* <div className={classes.content}>
-          <WeatherIcon classes={classes} id={iconId} />
-        </div> */}
         <div className={classes.text}>
           {formatDate(startDate, formatOptions)}
         </div>
@@ -314,9 +270,13 @@ const FlexibleSpace = withStyles(styles, { name: 'ToolbarRoot' })(
   ({ classes, ...restProps }) => (
     <Toolbar.FlexibleSpace {...restProps} className={classes.flexibleSpace}>
       <div className={classes.flexContainer}>
-        <ColorLens fontSize='large' htmlColor='#FF7043' />
+        <img
+          className='icon'
+          src='https://myschoolathome.io/static/media/logo100-100.ba4f14e7.svg'
+          alt='MySchool icon'
+        />
         <Typography variant='h5' style={{ marginLeft: '10px' }}>
-          MySchool Calendar
+          Learning Calendar
         </Typography>
       </div>
     </Toolbar.FlexibleSpace>
